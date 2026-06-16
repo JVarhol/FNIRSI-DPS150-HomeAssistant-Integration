@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fnirsi-dps150-controller"
+version = "1.0.0"
+description = "Desktop controller for FNIRSI DPS-150 power supplies with Home Assistant MQTT integration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Jaret Varholick", email = "jaretvarholick@gmail.com" }
+]
+keywords = ["fnirsi", "dps150", "power-supply", "mqtt", "home-assistant", "serial"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Home Automation",
+    "Topic :: System :: Hardware",
+]
+dependencies = [
+    "pyserial>=3.5",
+    "paho-mqtt>=1.6",
+]
+
+[project.optional-dependencies]
+tray = [
+    "pystray>=0.19",
+    "pillow>=10.0",
+]
+all = [
+    "fnirsi-dps150-controller[tray]",
+]
+
+[project.urls]
+Homepage = "https://github.com/jaretvarholick/fnirsi-dps150-controller"
+"Based on" = "https://github.com/KochC/DPS-150-python-library"
+
+[project.gui-scripts]
+fnirsi-dps150 = "fnirsi_dps200_ui:main"
