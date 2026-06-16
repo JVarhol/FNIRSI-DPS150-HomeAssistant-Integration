@@ -1,6 +1,6 @@
 # FNIRSI DPS-150 Controller
 
-A Python desktop application for controlling up to two FNIRSI DPS-150 programmable power supplies over USB serial, with a live tkinter UI and full Home Assistant integration via MQTT.
+A Python desktop application for controlling up to two FNIRSI DPS-150 programmable power supplies over USB serial, with a UI and full Home Assistant integration via MQTT.
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue) ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
 
