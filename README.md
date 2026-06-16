@@ -1,6 +1,6 @@
 # FNIRSI DPS-150 Controller
 
-A Python desktop application for controlling up to two FNIRSI DPS-150 programmable power supplies over USB serial, with a UI and full Home Assistant integration via MQTT.
+A Python desktop application for controlling up to two FNIRSI DPS-150 programmable power supplies over USB serial, with a live tkinter UI and full Home Assistant integration via MQTT.
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue) ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey) ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -28,13 +28,19 @@ A Python desktop application for controlling up to two FNIRSI DPS-150 programmab
 - FNIRSI DPS-150 connected via USB (appears as a COM port)
 - Home Assistant with an MQTT broker (optional)
 
-Install dependencies:
+Install with all dependencies (including system tray support):
 
 ```
-pip install -r requirements.txt
+pip install ".[all]"
 ```
 
-Dependencies: `pyserial`, `paho-mqtt`, `pystray`, `pillow`. No extra packages are needed for password encryption — Windows DPAPI is used via Python's built-in `ctypes`.
+Or install just the core dependencies (no system tray):
+
+```
+pip install .
+```
+
+Core dependencies are `pyserial` and `paho-mqtt`. System tray support (`pystray`, `pillow`) is an optional extra — the app runs fine without it, the tray icon just won't appear. Password encryption uses Windows DPAPI via Python's built-in `ctypes`, so no extra package is needed.
 
 ---
 
@@ -44,7 +50,7 @@ Dependencies: `pyserial`, `paho-mqtt`, `pystray`, `pillow`. No extra packages ar
 |---|---|
 | `fnirsi_dps200.py` | DPS-150 serial driver |
 | `fnirsi_dps200_ui.pyw` | Main UI application |
-| `requirements.txt` | Python dependencies |
+| `pyproject.toml` | Project metadata and dependencies (PEP 621) |
 
 Both files must be in the same folder.
 
